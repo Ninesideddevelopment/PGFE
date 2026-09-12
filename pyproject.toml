@@ -1,7 +1,7 @@
 [project]
 name = "pgfe"
 description = "Pygame Framework Environent. A 2D game framework that is built ontop of pygame-ce!"
-version = "0.1.0.post1"
+version = "0.1.0.post2"
 requires-python = ">=3.14"
 dependencies = [
     "pygame-ce",
