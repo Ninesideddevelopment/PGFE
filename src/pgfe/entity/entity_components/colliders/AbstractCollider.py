@@ -25,13 +25,15 @@ class AbstractCollider(AbstractComponent, abc.ABC):
     def collides(self, sprite_group):
         directions = {"top": False, "left": False, "bottom": False, "right": False}
 
+        newgroup = pg.sprite.Group(*sprite_group.sprites())
+
         # Remove unwanted sprites
-        for sprite in sprite_group.sprites():
+        for sprite in newgroup.sprites():
             if sprite != self and type(sprite) in self.collision_exceptions.unconditional:
-                sprite_group.remove(sprite)
+                newgroup.remove(sprite)
 
         self.move_x()
-        for sprite in self.get_collides(sprite_group):
+        for sprite in self.get_collides(newgroup):
             right, left = self.collide(sprite, Enum.Axis.X)
             directions.update({
                 "left": left,
@@ -39,7 +41,7 @@ class AbstractCollider(AbstractComponent, abc.ABC):
             })
 
         self.move_y()
-        for sprite in self.get_collides(sprite_group):
+        for sprite in self.get_collides(newgroup):
             top, bottom = self.collide(sprite, Enum.Axis.Y)
             directions.update({
                 "top": top,
