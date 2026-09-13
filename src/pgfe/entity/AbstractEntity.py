@@ -8,8 +8,20 @@ from pgfe.entity.entity_controllers.AbstractController import AbstractController
 
 class AbstractEntity(pgfe.game_object.GameObject, abc.ABC):
 
-    def __init__(self, *groups, x: int, y: int, image: pg.Surface) -> None:
-        pgfe.game_object.GameObject.__init__(self, *groups)
+    def __init__(
+            self,
+            *groups,
+            x: int,
+            y: int,
+            image_varients = None
+    ) -> None:
+
+        if image_varients is None:
+            image_varients = {
+                "image": pg.Surface((64, 64)),
+            }
+
+        pgfe.game_object.GameObject.__init__(self, *groups, image_varients=image_varients)
         self.controller: AbstractController|None = None
 
         self.image = image

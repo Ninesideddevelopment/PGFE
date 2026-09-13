@@ -7,8 +7,8 @@ from pgfe.camera import Camera2D
 
 class GameObject(pg.sprite.Sprite):
 
-    def __init__(self, image_varients: dict[str, pg.Surface]):
-        super().__init__()
+    def __init__(self, *groups, image_varients: dict[str, pg.Surface]):
+        super().__init__(*groups)
 
         self.image = list(image_varients.values())[0]
         self.rect = pg.FRect(self.image.get_rect())
