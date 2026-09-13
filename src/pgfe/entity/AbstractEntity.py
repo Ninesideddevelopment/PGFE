@@ -24,7 +24,6 @@ class AbstractEntity(pgfe.game_object.GameObject, abc.ABC):
         pgfe.game_object.GameObject.__init__(self, *groups, image_varients=image_varients)
         self.controller: AbstractController|None = None
 
-        self.image = image
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
