@@ -5,4 +5,4 @@ import pgfe.scene
 import pgfe.camera
 import pgfe.Enum
 import pgfe.events_manager
-import pgfe.sprite
+import pgfe.game_object

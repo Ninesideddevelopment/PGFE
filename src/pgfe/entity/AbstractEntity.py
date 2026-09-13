@@ -2,13 +2,14 @@
 import abc
 import pygame as pg
 
+import pgfe.game_object
 from pgfe.entity.entity_controllers.AbstractController import AbstractController
 
 
-class AbstractEntity(pg.sprite.Sprite, abc.ABC):
+class AbstractEntity(pgfe.game_object.GameObject, abc.ABC):
 
     def __init__(self, *groups, x: int, y: int, image: pg.Surface) -> None:
-        pg.sprite.Sprite.__init__(self, *groups)
+        pgfe.game_object.GameObject.__init__(self, *groups)
         self.controller: AbstractController|None = None
 
         self.image = image

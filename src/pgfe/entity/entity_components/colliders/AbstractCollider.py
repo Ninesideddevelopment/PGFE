@@ -2,6 +2,7 @@
 import abc
 import pygame as pg
 
+import pgfe.game_object
 from pgfe import Enum
 from pgfe.entity.entity_components.AbstractComponent import AbstractComponent
 from pgfe.entity.entity_components.CollisionExceptions import CollisionExceptions
@@ -19,13 +20,13 @@ class AbstractCollider(AbstractComponent, abc.ABC):
                 yield sprite
 
     @abc.abstractmethod
-    def collide(self, sprite: pg.sprite.Sprite, axis: Enum.Axis) -> tuple[bool, bool]:
+    def collide(self, sprite: pgfe.game_object.GameObject, axis: Enum.Axis) -> tuple[bool, bool]:
         pass
 
     def collides(self, sprite_group):
         directions = {"top": False, "left": False, "bottom": False, "right": False}
 
-        newgroup = pg.sprite.Group(*sprite_group.sprites())
+        newgroup = pgfe.game_object.ObjectGroup(*sprite_group.sprites())
 
         # Remove unwanted sprites
         for sprite in newgroup.sprites():

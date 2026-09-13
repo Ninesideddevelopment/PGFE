@@ -6,6 +6,8 @@ import typing
 import dataclasses
 import pygame as pg
 
+import pgfe
+
 if typing.TYPE_CHECKING:
     from pgfe.game.AbstractGame import AbstractGame
 
@@ -29,13 +31,13 @@ class SceneColors:
 
 class AbstractScene(abc.ABC):
 
-    def __init__(self, game: AbstractGame, colors: SceneColors = SceneColors(), **groups: pg.sprite.Group):
+    def __init__(self, game: AbstractGame, colors: SceneColors = SceneColors(), **groups: pgfe.game_object.ObjectGroup):
 
         self.game: AbstractGame = game
 
         self.colors: SceneColors = colors
 
-        self.groups: dict[str, pg.sprite.Group] = groups
+        self.groups: dict[str, pgfe.game_object.ObjectGroup] = groups
 
     @abc.abstractmethod
     def load(self):
