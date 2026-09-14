@@ -13,6 +13,13 @@ class GameObject(pg.sprite.Sprite):
         self.image = list(image_varients.values())[0]
         self.rect = pg.FRect(self.image.get_rect())
 
+    @property
+    def position(self) -> pg.Vector2:
+        return pg.Vector2(
+            self.rect.x,
+            self.rect.y,
+        )
+
 
 class ObjectGroup(pg.sprite.Group):
 
