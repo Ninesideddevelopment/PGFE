@@ -7,6 +7,7 @@ import dataclasses
 import pygame as pg
 
 import pgfe
+from pgfe.camera import Camera2D
 
 if typing.TYPE_CHECKING:
     from pgfe.game.AbstractGame import AbstractGame
@@ -51,6 +52,6 @@ class AbstractScene(abc.ABC):
         for group in self.groups.values():
             group.update(*args, **kwargs)
 
-    def render(self, surface: pg.Surface):
+    def render(self, surface: pg.Surface, camera: Camera2D|None = None):
         for group in self.groups.values():
-            group.draw(surface)
+            group.draw(surface, camera=camera)
