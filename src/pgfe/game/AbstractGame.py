@@ -51,5 +51,10 @@ class AbstractGame(abc.ABC):
             self.window.get_surface().fill(self.scene.colors.BG)
 
             self.scene.update()
+            self.custom_loop()
 
             self.update_idle_tasks()
+
+    @abc.abstractmethod
+    def custom_loop(self):
+        pass
