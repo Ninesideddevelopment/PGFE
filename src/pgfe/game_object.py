@@ -34,7 +34,7 @@ class ObjectGroup(pg.sprite.Group):
                     surface.blits(
                         (
                             spr.image,
-                            pg.Rect(spr.rect.x - spr.rect.width / 2 - camera.x, spr.rect.y - spr.rect.height / 2 - camera.y, spr.rect.w, spr.rect.h),
+                            pg.Rect(spr.rect.x - spr.rect.width / 2 + camera.x, spr.rect.y - spr.rect.height / 2 + camera.y, spr.rect.w, spr.rect.h),
                             None,
                             special_flags
                         ) for spr in sprites
