@@ -10,8 +10,10 @@ class GameObject(pg.sprite.Sprite):
     def __init__(self, *groups, image_varients: dict[str, pg.Surface]):
         super().__init__(*groups)
 
-        self.image = list(image_varients.values())[0]
-        self.rect = pg.FRect(self.image.get_rect())
+        self.image_varients: dict[str, pg.Surface] = image_varients
+
+        self.image: pg.Surface = list(image_varients.values())[0]
+        self.rect: pg.Frect = pg.FRect(self.image.get_rect())
 
     @property
     def position(self) -> pg.Vector2:
