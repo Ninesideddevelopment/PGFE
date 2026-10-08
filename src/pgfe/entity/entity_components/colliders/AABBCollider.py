@@ -14,11 +14,9 @@ class AABBCollider(AbstractCollider, abc.ABC):
             to_return = [False, False]
             if self.velocity.x > 0:
                 self.rect.right = sprite.rect.left
-                self.velocity.x = 0
                 to_return[0] = True
             if self.velocity.x < 0:
                 self.rect.left = sprite.rect.right
-                self.velocity.x = 0
                 to_return[1] = True
             return tuple(to_return)
 
@@ -26,11 +24,9 @@ class AABBCollider(AbstractCollider, abc.ABC):
             to_return = [False, False]
             if self.velocity.y > 0:
                 self.rect.bottom = sprite.rect.top
-                self.velocity.y = 0
                 to_return[1] = True
             if self.velocity.y < 0:
                 self.rect.top = sprite.rect.bottom
-                self.velocity.y = 0
                 to_return[0] = True
             return tuple(to_return)
 
