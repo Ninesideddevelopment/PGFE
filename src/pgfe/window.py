@@ -63,4 +63,4 @@ class Window(pg.Window):
 
         elif self.fullscreen_mode == "fullscreen_desktop":
             self.fullscreen_mode = "windowed"
-            self.set_fullscreen(desktop=True)
+            self.set_windowed()
