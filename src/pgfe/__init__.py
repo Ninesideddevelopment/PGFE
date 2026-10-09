@@ -6,3 +6,5 @@ import pgfe.camera
 import pgfe.Enum
 import pgfe.events_manager
 import pgfe.game_object
+import pgfe.spritesheet
+import pgfe.window
