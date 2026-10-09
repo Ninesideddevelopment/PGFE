@@ -8,7 +8,7 @@ class Window(pg.Window):
             self,
             title: str = "pygame window",
             size: Point = (640, 480),
-            position: int | Point = WINDOWPOS_UNDEFINED,
+            position: int | Point = pg.WINDOWPOS_UNDEFINED,
             *,
             fullscreen: bool = False,
             fullscreen_desktop: bool = False,
