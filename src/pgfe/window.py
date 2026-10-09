@@ -52,8 +52,15 @@ class Window(pg.Window):
             utility=utility,
         )
 
-        self.fullscreen_mode: Literal["windowed", "fullscreen", "fullscreen_desktop"] = "windowed"
-        if fullscreen:
-            self.fullscreen_mode = "fullscreen"
+        self.fullscreen_mode: Literal["windowed", "fullscreen_desktop"] = "windowed"
         if fullscreen_desktop:
             self.fullscreen_mode = "fullscreen_desktop"
+
+    def toggle_fullscreen(self) -> None:
+        if self.fullscreen_mode == "windowed":
+            self.fullscreen_mode = "fullscreen_desktop"
+            self.set_fullscreen(desktop=True)
+
+        if self.fullscreen_mode == "fullscreen_desktop":
+            self.fullscreen_mode = "windowed"
+            self.set_fullscreen(desktop=True)
