@@ -2,6 +2,7 @@
 import abc
 import pygame as pg
 
+import pgfe
 from pgfe.camera import Camera2D
 from pgfe.scene.AbstractScene import AbstractScene
 from pgfe import events_manager
@@ -15,7 +16,7 @@ def quit(event: int):
 class AbstractGame(abc.ABC):
 
     def __init__(self, framerate: int = 60, tickrate: int = 60, camera: Camera2D|None = None, **window_args):
-        self.window: pg.Window = pg.Window(**window_args)
+        self.window: pgfe.window.Window = pgfe.window.Window(**window_args)
         self.window.get_surface()
 
         self.clock: pg.time.Clock = pg.time.Clock()
